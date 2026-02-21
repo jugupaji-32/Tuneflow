@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/image.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuneflow by Techiemengo</title>
+    <link rel="stylesheet" crossorigin="" href="css/index-CBxK96bp.css">
+      </head>
+  <body>
+    <div class="vision-container">
+      <!-- Background -->
+      <video class="background-video" autoplay loop muted playsinline>
+        <source src="media/bg.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+      <!-- <div class="background"></div> -->
+
+      <!-- Top Control Bar -->
+      <div class="top-bar glass-panel">
+        <div class="browser-controls" style="display: flex; align-items: center; gap: 8px;">
+          <img src="images/image.png" alt="Logo" style="width: 34px; height: 34px; border-radius: 4px;">
+        </div>
+        
+        <!-- Liquid Glass Clock -->
+        <div class="liquid-clock" id="liquid-clock">
+          <div class="clock-face">
+            <div class="clock-time" id="clock-time">00:00</div>
+            <div class="clock-seconds" id="clock-seconds">:00</div>
+          </div>
+        </div>
+        
+        <div class="url-bar glass-panel-nested" style="padding: 4px 12px; display: flex; align-items: center; gap: 8px; cursor: text;" onclick="document.getElementById('top-bar-search').focus()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;">
+             <circle cx="11" cy="11" r="8"></circle>
+             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="top-bar-search" placeholder="Search songs..." style="background: transparent; border: none; outline: none; color: white; width: 100%; font-family: inherit; font-size: 14px;">
+        </div>
+        
+        <div class="browser-actions">
+            <button class="control-btn" onclick="window.open('https://chat.openai.com', '_blank')" title="Open ChatGPT" style="color: white;">
+             <img src="images/openai.svg" alt="ChatGPT" style="width: 26px; height: 26px;">
+            </button>
+            <div class="browser-actions">
+            <button class="control-btn" onclick="window.open('https://www.perplexity.ai/', '_blank')" title="Open Perplexity">
+            <img id="perplexity-logo" src="images/Perplexity-Icons-white.svg" alt="Perplexity" style="width: 16px; height: 16px;">
+            </button>
+            <button class="control-btn" onclick="window.open('https://gemini.google.com/', '_blank')" title="Open Gemini">
+            <img id="gemini-logo" src="images/gemini.svg" alt="Gemini" style="width: 16px; height: 16px;">
+            </button>
+            <button class="control-btn" onclick="window.open('https://github.com/', '_blank')" title="Open GitHub">
+            <img id="github-logo" src="images/github.svg" alt="GitHub" style="width: 16px; height: 16px;">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left Icon Dock -->
+      <div class="left-dock glass-panel">
+        <button class="dock-icon active">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button class="dock-icon" id="search-trigger">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </button>
+        <a href="https://contacts.google.com/" target="_blank" class="dock-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M23 21V19C23 18.0 22.5 17.1 21.8 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M16 3.1C16.7 3.6 17.2 4.5 17.2 5.5C17.2 6.5 16.7 7.4 16 7.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </a>
+        <a href="https://mail.google.com/" target="_blank" class="dock-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"></rect>
+            <path d="M3 9L12 15L21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <a href="https://photo.google.com/" target="_blank" class="dock-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+            <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <a href="https://keep.google.com/" target="_blank" class="dock-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="3" y1="21" x2="6.75" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+          </svg>
+        </a>
+        <div class="dock-separator"></div>
+        <button class="dock-icon" id="theme-toggle" title="Toggle Dark/Light Mode">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" id="theme-icon">
+            <!-- Sun Icon (Light Mode) -->
+            <g class="sun-icon">
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+              <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+            </g>
+            <!-- Moon Icon (Dark Mode) -->
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="none" class="moon-icon" style="display: none;"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Main Content Window -->
+      <div class="main-window glass-panel">
+        <div class="window-header">
+          <button class="menu-btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="5" r="1.5" fill="currentColor"></circle>
+              <circle cx="10" cy="10" r="1.5" fill="currentColor"></circle>
+              <circle cx="10" cy="15" r="1.5" fill="currentColor"></circle>
+            </svg>
+          </button>
+        </div>
+
+        <div class="content-area">
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="playlist">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Playlist
+            </button>
+            <button class="tab-btn" data-tab="albums">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Albums
+            </button>
+            <button class="tab-btn" data-tab="artists">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"></circle>
+              </svg>
+              Artists
+            </button>
+            <button class="tab-btn" data-tab="settings">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"></circle>
+                <path d="M12 1V6M12 18V23M4.22 4.22L7.76 7.76M16.24 16.24L19.78 19.78M1 12H6M18 12H23M4.22 19.78L7.76 16.24M16.24 7.76L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+              Settings
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content-container">
+            <div class="tab-panel active" id="playlist-tab">
+              <div class="playlist-container" style="padding: 20px; overflow-y: auto; height: 100%;">
+                <div class="playlist-header" style="margin-bottom: 20px;">
+                  <h2 style="color: white; font-size: 24px; font-weight: 600; margin: 0;">Your Playlist</h2>
+                </div>
+                <div id="playlist-songs" style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Songs will be loaded here -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-panel" id="albums-tab">
+              <div class="albums-container" style="padding: 20px; overflow-y: auto; height: 100%;">
+                <div class="albums-header" style="margin-bottom: 20px;">
+                  <h2 style="color: white; font-size: 24px; font-weight: 600; margin: 0;">Albums</h2>
+                </div>
+                <div class="albums-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px;">
+                  <!-- Album items will be loaded here -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-panel" id="artists-tab">
+              <div class="artists-container" style="padding: 20px; overflow-y: auto; height: 100%;">
+                <div class="artists-header" style="margin-bottom: 20px;">
+                  <h2 style="color: white; font-size: 24px; font-weight: 600; margin: 0;">Artists</h2>
+                </div>
+                <div class="artists-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px;">
+                  <!-- Artist items will be loaded here -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-panel" id="settings-tab">
+              <div class="settings-container" style="padding: 20px; overflow-y: auto; height: 100%;">
+                <div class="settings-header" style="margin-bottom: 20px;">
+                  <h2 style="color: white; font-size: 24px; font-weight: 600; margin: 0;">Settings</h2>
+                </div>
+                <div class="settings-content" style="display: flex; flex-direction: column; gap: 16px;">
+                  <div class="setting-item glass-panel-nested" style="padding: 16px; border-radius: 12px;">
+                    <div style="color: white; font-weight: 500; margin-bottom: 8px;">Audio Quality</div>
+                    <select style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 12px; border-radius: 8px; outline: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s ease;">
+                      <option value="high" style="background: rgba(0, 0, 0, 0.8); color: white;">High Quality</option>
+                      <option value="medium" style="background: rgba(0, 0, 0, 0.6); color: white;">Medium Quality</option>
+                      <option value="low" style="background: rgba(0, 0, 0, 0.4); color: white;">Low Quality</option>
+                    </select>
+                  </div>
+                  <div class="setting-item glass-panel-nested" style="padding: 16px; border-radius: 12px;">
+                    <div style="color: white; font-weight: 500; margin-bottom: 8px;">Crossfade</div>
+                    <label style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8);">
+                      <input type="checkbox" style="accent-color: #667eea;">
+                      Enable crossfade between tracks
+                    </label>
+                  </div>
+                  <div class="setting-item glass-panel-nested" style="padding: 16px; border-radius: 12px;">
+                    <div style="color: white; font-weight: 500; margin-bottom: 8px;">Library Statistics</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.8);">
+                      <span>Total Songs:</span>
+                      <span id="song-count" style="font-weight: 600; color: white;">0</span>
+                    </div>
+                  </div>
+                  <div class="setting-item glass-panel-nested" style="padding: 16px; border-radius: 12px;">
+                    <div style="color: white; font-weight: 500; margin-bottom: 8px;">Visual Effects</div>
+                    <label style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8);">
+                      <input type="checkbox" checked style="accent-color: #667eea;">
+                      Enable animations and transitions
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <audio id="audio-player" style="display: none;"></audio>
+
+        <div class="media-controls glass-panel-nested" style="display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; gap: 20px;">
+          <!-- Left: Now Playing Section -->
+          <div class="now-playing" style="display: flex; align-items: center; gap: 16px; flex-shrink: 0;">
+            <div class="album-art glass-panel-nested" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));">
+                <rect width="32" height="32" rx="6" fill="rgba(255,255,255,0.15)"></rect>
+                <circle cx="16" cy="16" r="8" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"></circle>
+                <circle cx="16" cy="16" r="3" fill="rgba(255,255,255,0.8)"></circle>
+              </svg>
+            </div>
+            <div class="track-info" style="display: flex; flex-direction: column; justify-content: center; overflow: hidden;">
+              <div class="track-name initial" style="color: white; font-weight: 600; font-size: 15px; line-height: 1.3; margin-bottom: 2px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Spatial Audio Experience</div>
+              <div class="artist-name" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.3; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Apple Music</div>
+            </div>
+          </div>
+          
+          <!-- Center: Transport Controls -->
+          <div class="controls-group" style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+            <button class="media-btn" id="prev-btn" style="width: 44px; height: 44px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));">
+                <path d="M6 4L6 16M14 4L14 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M14 10L6 4V16L14 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <button class="media-btn play-btn" id="play-pause-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="filter: drop-shadow(0 1px 2px rgba(102, 126, 234, 0.3));">
+                <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"></rect>
+                <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"></rect>
+              </svg>
+            </button>
+            <button class="media-btn" id="next-btn" style="width: 44px; height: 44px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));">
+                <path d="M14 4V16M6 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M6 10L14 16V4L6 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Right: Volume Control -->
+          <div class="volume-control" style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+            <button class="media-btn" id="volume-btn" style="width: 40px; height: 40px; position: relative; overflow: visible;">
+              <!-- Speaker Icon -->
+              <svg id="volume-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" style="filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)); z-index: 1;">
+                <path d="M11 3L5.5 7H2V11H5.5L11 15V3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                <path d="M13 5C14 6 14.5 7.5 14.5 9C14.5 10.5 14 12 13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+              </svg>
+              <!-- Mute Overlay (Crossed Line) -->
+              <div id="mute-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="filter: drop-shadow(0 1px 2px rgba(239, 68, 68, 0.4));">
+                  <line x="4" y="4" x2="16" y2="16" stroke="rgba(239, 68, 68, 0.9)" stroke-width="2.5" stroke-linecap="round"></line>
+                </svg>
+              </div>
+            </button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" style="width: 100px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Quick Notes Panel -->
+      <div class="right-panel glass-panel">
+        <div class="panel-header">
+          <h3>Quick Notes</h3>
+          <button class="panel-control" onclick="clearAllNotes()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 2h12v12H2V2zm1 1v10h10V3H3z" stroke="currentColor" stroke-width="1.5"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="notes-container">
+          <!-- Notes Section -->
+          <div class="notes-section">
+            <div class="notes-header">
+              <h4>Notes</h4>
+              <div class="notes-info">
+                <span id="note-count">0</span> notes
+              </div>
+            </div>
+            <div class="notes-list" id="notes-list">
+              <!-- Notes will be dynamically added here -->
+            </div>
+            <div class="notes-actions">
+              <button class="notes-btn" onclick="addNewNote()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1v6m0 0v6m6-6H1m12 0H7" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                New Note
+              </button>
+              <button class="notes-btn" onclick="downloadAllNotes()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1v12h12V1zm1 1h10v10H1z" fill="currentColor"></path>
+                </svg>
+                Export All
+              </button>
+              <button class="notes-btn" onclick="deleteAllNotes()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 3h8v8H3V3zm1 1v6h6V4H4z" stroke="currentColor" stroke-width="1.5"></path>
+                </svg>
+                Delete All
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Brightness Control (formerly Progress Indicator) -->
+      <div class="glass-panel" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 320px; height: 50px; border-radius: 25px; display: flex; align-items: center; padding: 0 20px; gap: 15px; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white; opacity: 0.9;">
+           <circle cx="12" cy="12" r="5"></circle>
+           <line x1="12" y1="1" x2="12" y2="3"></line>
+           <line x1="12" y1="21" x2="12" y2="23"></line>
+           <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+           <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+           <line x1="1" y1="12" x2="3" y2="12"></line>
+           <line x1="21" y1="12" x2="23" y2="12"></line>
+           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <div style="position: relative; flex: 1; height: 100%; display: flex; align-items: center;">
+            <input type="range" id="bottom-brightness-slider" min="0" max="1" step="0.01" value="1" style="width: 100%; cursor: pointer; opacity: 0.8;">
+        </div>
+      </div>
+      <!-- Universal Search Popup -->
+      <div class="search-popup glass-panel" id="search-popup">
+        <div class="search-input-wrapper">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="universal-search-input" placeholder="Search Google..." autocomplete="off">
+        </div>
+      </div>
+
+      <script src="script.js"></script>
+    </div>
+  </body></html>
